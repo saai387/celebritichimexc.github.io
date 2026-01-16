@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Estrellas ON FIRE! 🔥 Chismes, Tendencias y Drama VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF00FF; /* Fucsia eléctrico */
+            --secondary-color: #00FFFF; /* Turquesa neón */
+            --accent-color: #FFFF00; /* Amarillo brillante */
+            --dark-bg: #1a1a2e; /* Azul oscuro casi negro */
+            --light-text: #e0e0e0;
+            --card-bg: #2b2b4d;
+            --border-radius-lg: 20px;
+            --border-radius-sm: 10px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 3.5em; /* Tamaño grande para el título */
+            color: var(--dark-bg);
+            text-shadow: 
+                -3px -3px 0 var(--accent-color),  
+                3px -3px 0 var(--accent-color),
+                -3px 3px 0 var(--accent-color),
+                3px 3px 0 var(--accent-color),
+                5px 5px 0 rgba(0,0,0,0.3);
+            margin: 0;
+            padding: 10px 0;
+            letter-spacing: 3px;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.1); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: var(--dark-bg);
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.8em;
+            text-align: center;
+            color: var(--accent-color);
+            margin: 40px 0 30px;
+            text-shadow: 
+                -2px -2px 0 var(--primary-color),  
+                2px -2px 0 var(--primary-color),
+                -2px 2px 0 var(--primary-color),
+                2px 2px 0 var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '🔥';
+            position: absolute;
+            right: 10px; /* Ajusta la posición del emoji */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            animation: pulse 1.5s infinite alternate;
+        }
+        .section-title::before {
+            content: '✨';
+            position: absolute;
+            left: 10px; /* Ajusta la posición del emoji */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translateY(-50%); }
+            100% { transform: scale(1.1) translateY(-50%); }
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 2px solid var(--primary-color);
+            position: relative;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(var(--primary-color), 0.8);
+            border-color: var(--secondary-color);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--accent-color);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .news-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-content h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 0 var(--primary-color);
+        }
+
+        .news-content p {
+            font-size: 0.95em;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .news-content .read-more {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-bg);
+            padding: 10px 18px;
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .news-content .read-more:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(var(--primary-color), 0.6);
+        }
+
+        .tag {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8em;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+        }
+        .tag.hot { background-color: var(--accent-color); }
+        .tag.exclusive { background-color: var(--secondary-color); }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 3px solid var(--primary-color);
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        /* Efecto de partículas de fondo (opcional, si quieres más "locura") */
+        .background-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 0, 255, 0.5); /* fucsia */
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+            opacity: 0;
+        }
+        .particle:nth-child(2n) { background-color: rgba(0, 255, 255, 0.5); /* turquesa */ }
+        .particle:nth-child(3n) { background-color: rgba(255, 255, 0, 0.5); /* amarillo */ }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+            20% { opacity: 1; transform: translateY(-20%) translateX(10%) scale(0.5); }
+            40% { transform: translateY(-40%) translateX(-10%) scale(0.8); }
+            60% { transform: translateY(-60%) translateX(15%) scale(0.7); }
+            80% { transform: translateY(-80%) translateX(-5%) scale(0.9); }
+            100% { transform: translateY(-100%) translateX(20%) scale(1.2); opacity: 0; }
+        }
+
+        /* Generar las partículas con JS o manualmente */
+        /* Para este ejemplo, las pondremos manual */
+        .particle:nth-child(1) { width: 15px; height: 15px; left: 10%; top: 80%; animation-duration: 12s; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 20px; height: 20px; left: 30%; top: 90%; animation-duration: 18s; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 10px; height: 10px; left: 50%; top: 70%; animation-duration: 10s; animation-delay: 1s; }
+        .particle:nth-child(4) { width: 25px; height: 25px; left: 70%; top: 85%; animation-duration: 16s; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 18px; height: 18px; left: 90%; top: 75%; animation-duration: 14s; animation-delay: 4s; }
+        .particle:nth-child(6) { width: 12px; height: 12px; left: 5%; top: 60%; animation-duration: 13s; animation-delay: 5s; }
+        .particle:nth-child(7) { width: 22px; height: 22px; left: 40%; top: 95%; animation-duration: 17s; animation-delay: 1s; }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .news-card {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>¡Estrellas ON FIRE! 🔥</h1>
+            <p>Tu dosis diaria de chismes, tendencias y drama VIP. ¡Prepárate para el show!</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Últimos Flashes 📸</h2>
+
+        <section class="news-grid">
+            <article class="news-card">
+                <span class="tag hot">🔥 HOT!</span>
+                <img src="https://picsum.photos/id/1015/600/400" alt="Celebridad en evento">
+                <div class="news-content">
+                    <h3>¿Romance Secreto? ¡Captan a 'El Enigma' con 'La Musa' en una cita TOP!</h3>
+                    <p>Rumores explotaron en redes sociales al ver a 'El Enigma', el misterioso cantante, con 'La Musa', la actriz del momento. ¿Será el nuevo "it couple"? Los fans ya están creando teorías conspirativas...</p>
+                    <a href="#" class="read-more">¡Descubre el Drama!</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="tag exclusive">✨ EXCLUSIVA!</span>
+                <img src="https://picsum.photos/id/1025/600/400" alt="Cambio de look de celebridad">
+                <div class="news-content">
+                    <h3>¡Alerta de Cambio de Look! La Diva Pop 'Nebula' se tiñe el pelo de NEÓN.</h3>
+                    <p>La icónica 'Nebula' sorprende a todos con un cambio de imagen radical. Su nuevo cabello verde neón está rompiendo el internet. ¿Moda o declaración? ¡Analizamos cada detalle aquí!</p>
+                    <a href="#" class="read-more">¡Ver el Antes y Después!</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="tag">💥 VIRAL!</span>
+                <img src="https://picsum.photos/id/1028/600/400" alt="Red carpet">
+                <div class="news-content">
+                    <h3>¡El Look de la Alfombra Roja que Nadie Esperaba! ¿Acierto o Desastre?</h3>
+                    <p>El atuendo de 'El Magnate' en la gala de anoche ha dividido opiniones. ¡Desde memes hasta elogios! Te mostramos por qué este outfit está dando tanto de qué hablar...</p>
+                    <a href="#" class="read-more">¡Juzga por ti Mismo!</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="tag hot">🔥 Drama!</span>
+                <img src="https://picsum.photos/id/1033/600/400" alt="Declaración de celebridad">
+                <div class="news-content">
+                    <h3>¡Escándalo! 'La Emperatriz' responde a los haters con un Tweet épico.</h3>
+                    <p>Después de semanas de silencio, 'La Emperatriz' no se contiene más y lanza un tweet contundente a quienes la critican. ¡El drama está servido y la guerra en redes ha comenzado!</p>
+                    <a href="#" class="read-more">¡Lee su Respuesta!</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="tag exclusive">✨ Entrevista!</span>
+                <img src="https://picsum.photos/id/1039/600/400" alt="Backstage de show">
+                <div class="news-content">
+                    <h3>Detrás de Escena: Así se prepara 'El Fenómeno' para su nueva gira mundial.</h3>
+                    <p>Nos colamos en los ensayos de 'El Fenómeno' y descubrimos sus secretos para la gira que promete ser legendaria. ¡Prepárense para coreografías nunca antes vistas!</p>
+                    <a href="#" class="read-more">¡Acceso VIP!</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="tag">🎮 Gaming!</span>
+                <img src="https://picsum.photos/id/1042/600/400" alt="Celebridad gamer">
+                <div class="news-content">
+                    <h3>¡Sorpresa Gamer! El Actor 'Pixel' lanza su propio videojuego.</h3>
+                    <p>El reconocido actor 'Pixel', famoso por sus papeles dramáticos, revela su inesperada pasión por los videojuegos lanzando su propio título. ¿Será un éxito rotundo o un 'epic fail'?</p>
+                    <a href="#" class="read-more">¡Juega Ahora!</a>
+                </div>
+            </article>
+        </section>
+
+        <h2 class="section-title">¡Lo Más Viral! 🚀</h2>
+        <section class="news-grid">
+            <article class="news-card">
+                <span class="tag hot">🔥 Tendencia</span>
+                <img src="https://picsum.photos/id/1050/600/400" alt="Challenge viral">
+                <div class="news-content">
+                    <h3>¡El #BailaComoXChallenge es la Nueva Locura! Celebridades se unen.</h3>
+                    <p>Todo el mundo está bailando como X en TikTok e Instagram, ¡y las celebridades no son la excepción! Descubre quién lo hace mejor (y peor) en este viral desafío...</p>
+                    <a href="#" class="read-more">¡Mira los Videos!</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="tag exclusive">✨ Descubre!</span>
+                <img src="https://picsum.photos/id/1060/600/400" alt="Mascota de celebridad">
+                <div class="news-content">
+                    <h3>La Mascota Secreta de 'La Hechicera' que está Enamorando al Mundo.</h3>
+                    <p>'La Hechicera' presenta a su nueva y adorable mascota, ¡y ya es toda una sensación! Conoce a este pequeño peludo que está robando corazones y generando mil historias...</p>
+                    <a href="#" class="read-more">¡Fotos Exclusivas!</a>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Estrellas ON FIRE. Todos los derechos reservados. | 🔥 ¡Mantente Conectado!</p>
+            <p>Hecho con 💖 por tu asistente de chismes favorito.</p>
+        </div>
+    </footer>
+</body>
+</html>
